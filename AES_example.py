@@ -38,7 +38,7 @@ def decrypt_message(encoded_encrypted_msg, encoded_secret_key, padding_character
 	# use the cipher to decrypt the encrypted message
 	decrypted_msg = cipher.decrypt(encrypted_msg)
 	# unpad the encrypted message
-	unpadded_private_msg = decrypted_msg.rstrip(padding_character)
+	unpadded_private_msg = str(decrypted_msg).rstrip(padding_character)
 	# return a decrypted original private message
 	return unpadded_private_msg
 
@@ -55,8 +55,8 @@ secret_key = generate_secret_key_for_AES_cipher()
 encrypted_msg = encrypt_message(private_msg, secret_key, padding_character)
 decrypted_msg = decrypt_message(encrypted_msg, secret_key, padding_character)
 
-print "   Secret Key: %s - (%d)" % (secret_key, len(secret_key))
-print "Encrypted Msg: %s - (%d)" % (encrypted_msg, len(encrypted_msg))
-print "Decrypted Msg: %s - (%d)" % (decrypted_msg, len(decrypted_msg))
+print ("   Secret Key: %s - (%d)" % (secret_key, len(secret_key)))
+print ("Encrypted Msg: %s - (%d)" % (encrypted_msg, len(encrypted_msg)))
+print ("Decrypted Msg: %s - (%d)" % (decrypted_msg, len(decrypted_msg)))
 
 
